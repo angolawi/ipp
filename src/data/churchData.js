@@ -103,7 +103,7 @@ export const churchData = {
             link: `${import.meta.env.BASE_URL}docs/confissao_de_westminster.pdf`.replace(/\/+/g, '/')
         },
         {
-            title: "Breve Catecismo",
+            title: "Breve Catecismo de Westminster",
             description: "Um resumo conciso da doutrina bíblica in forma de perguntas e respostas, ideal para o ensino de crianças e novos membros.",
             icon: "school",
             link: `${import.meta.env.BASE_URL}docs/Breve_Catecismo_de_Westminster.pdf`.replace(/\/+/g, '/')
