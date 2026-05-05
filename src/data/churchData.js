@@ -46,16 +46,11 @@ export const churchData = {
     ],
 
     news: [
-        {
-            category: "COMUNHÃO",
-            title: "Retiro de Famílias 2024: Inscrições Abertas",
-            description: "Participe de um final de semana dedicado ao fortalecimento dos laços familiares e crescimento espiritual na Palavra.",
-            image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY"
-        },
+
         {
             category: "ENSINO",
-            title: "Novo Ciclo de EBD: Confissão de Fé",
-            description: "Iniciamos este mês o estudo aprofundado dos Padrões de Westminster.",
+            title: "Novo Ciclo de Exposições: Livro de Ageu",
+            description: "Neste novo ciclo de exposições, estudaremos a mensagem de Deus ao povo que retornou do exílio, desafiando-os a priorizar a Casa de Deus.",
             image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY"
         },
         {
