@@ -1,4 +1,29 @@
 import safImage from '../assets/images/saf.jpeg';
+import bannerImage from '../assets/images/banner.png';
+import pastorImage from '../assets/images/pastor.jpg';
+
+const getFirstSundays = (year) => {
+    const months = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+    const dates = [];
+    for (let month = 0; month < 12; month++) {
+        let date = new Date(year, month, 1);
+        while (date.getDay() !== 0) { // 0 is Sunday
+            date.setDate(date.getDate() + 1);
+        }
+        dates.push({
+            date: `${date.getDate().toString().padStart(2, '0')} ${months[month]}`,
+            title: "Ceia do Senhor",
+            time: "19:00",
+            location: "Templo",
+            // Adicionando um timestamp para facilitar a ordenação se necessário
+            timestamp: date.getTime()
+        });
+    }
+    return dates;
+};
+
+const currentYear = new Date().getFullYear();
+const recurringEvents = getFirstSundays(currentYear);
 
 export const churchData = {
     name: "IPB Paranoá",
@@ -51,26 +76,26 @@ export const churchData = {
             category: "ENSINO",
             title: "Novo Ciclo de Exposições: Livro de Ageu",
             description: "Neste novo ciclo de exposições, estudaremos a mensagem de Deus ao povo que retornou do exílio, desafiando-os a priorizar a Casa de Deus.",
-            image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY"
+            image: bannerImage
         },
         {
             category: "EVENTO",
             title: "Reunião de Oração e Pequenos Grupos",
             description: "Quarta-feira às 20h. Venha interceder conosco pelas necessidades da igreja.",
-            image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY"
+            image: bannerImage
         }
     ],
 
     ministries: [
         { id: "SAF", name: "SAF", fullName: "Sociedade Auxiliadora Feminina", description: "Dedicada ao serviço, oração e comunhão entre as mulheres da igreja.", image: safImage },
-        { id: "UPH", name: "UPH", fullName: "União Presbiteriana de Homens", description: "Focada no fortalecimento espiritual do homem presbiteriano.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
-        { id: "UMP", name: "UMP", fullName: "União de Mocidade Presbiteriana", description: "Um espaço de crescimento e amizade para jovens.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
-        { id: "UPA", name: "UPA", fullName: "União de Adolescentes Presbiterianos", description: "Acompanhando adolescentes em sua fase de descobertas.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
-        { id: "UCP", name: "UCP", fullName: "União de Crianças Presbiterianas", description: "Evangelizando e discipulando nossas crianças desde cedo.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" }
+        { id: "UPH", name: "UPH", fullName: "União Presbiteriana de Homens", description: "Focada no fortalecimento espiritual do homem presbiteriano.", image: bannerImage },
+        { id: "UMP", name: "UMP", fullName: "União de Mocidade Presbiteriana", description: "Um espaço de crescimento e amizade para jovens.", image: bannerImage },
+        { id: "UPA", name: "UPA", fullName: "União de Adolescentes Presbiterianos", description: "Acompanhando adolescentes em sua fase de descobertas.", image: bannerImage },
+        { id: "UCP", name: "UCP", fullName: "União de Crianças Presbiterianas", description: "Evangelizando e discipulando nossas crianças desde cedo.", image: bannerImage }
     ],
 
     leaders: [
-        { name: "Rev. Carlos Eduardo Melo Lima", role: "Pastor Titular", bio: "Bacharel em Teologia pelo Seminário Presbiteriano de Brasília.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
+        { name: "Rev. Carlos Eduardo Melo Lima", role: "Pastor Titular", bio: "Bacharel em Teologia pelo Seminário Presbiteriano de Brasília.", image: pastorImage },
         { name: "...", role: "Conselho de Presbíteros", bio: "Responsável pelo ministério de Ensino e Escola Dominical." },
         { name: "Presb. ", role: "Conselho de Presbíteros", bio: "Coordena as juntas de Diaconia e Obras Sociais." },
         { name: "Presb.", role: "Conselho de Presbíteros", bio: "Tesouraria e Administração Geral da Igreja." }
@@ -118,23 +143,41 @@ export const churchData = {
     ],
 
     events: [
+        ...recurringEvents,
         {
             date: "13 JUN",
             title: "Encontro de Casais",
             time: "19:30",
             location: "Em definição"
         },
-        {
-            date: "18 JUN",
-            title: "Batismo",
-            time: "20:00",
-            location: "Templo"
-        },
-        {
-            date: "25 JUN",
-            title: "Vigília de Oração",
-            time: "22:00",
-            location: "Templo"
-        }
-    ]
+
+    ].sort((a, b) => {
+        // Ordenação por timestamp se disponível
+        if (a.timestamp && b.timestamp) return a.timestamp - b.timestamp;
+
+        const getTimestamp = (evt) => {
+            if (evt.timestamp) return evt.timestamp;
+            const monthsNames = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+            const [day, monthStr] = evt.date.split(' ');
+            const monthIdx = monthsNames.indexOf(monthStr);
+            if (monthIdx === -1) return Infinity;
+            return new Date(currentYear, monthIdx, parseInt(day)).getTime();
+        };
+
+        return getTimestamp(a) - getTimestamp(b);
+    }).filter(event => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const getTimestamp = (evt) => {
+            if (evt.timestamp) return evt.timestamp;
+            const monthsNames = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+            const [day, monthStr] = evt.date.split(' ');
+            const monthIdx = monthsNames.indexOf(monthStr);
+            if (monthIdx === -1) return 0;
+            return new Date(currentYear, monthIdx, parseInt(day)).getTime();
+        };
+
+        return getTimestamp(event) >= today.getTime();
+    })
 };
