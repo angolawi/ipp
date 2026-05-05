@@ -20,16 +20,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Page Specific Initialization
     const path = window.location.pathname;
+    const baseUrl = import.meta.env.BASE_URL;
+    // Normalize path by removing base URL and ensuring it starts with /
+    const normalizedPath = path.replace(baseUrl, '/').replace(/\/+/g, '/');
     
-    if (path === '/' || path === '/index.html') {
+    if (normalizedPath === '/' || normalizedPath === '/index.html') {
         await initHome(churchData);
-    } else if (path.includes('quem-somos.html')) {
+    } else if (normalizedPath.includes('quem-somos.html')) {
         initQuemSomos(churchData);
-    } else if (path.includes('ministerios.html')) {
+    } else if (normalizedPath.includes('ministerios.html')) {
         initMinisterios(churchData);
-    } else if (path.includes('contato.html')) {
+    } else if (normalizedPath.includes('contato.html')) {
         initContato(churchData);
-    } else if (path.includes('agenda.html')) {
+    } else if (normalizedPath.includes('agenda.html')) {
         initAgenda(churchData);
     }
 });

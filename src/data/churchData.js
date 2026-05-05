@@ -86,9 +86,9 @@ export const churchData = {
         quoteAuthor: "Breve Catecismo de Westminster, Pergunta 1",
         solas: [
             { name: "Sola Scriptura", desc: "Somente a Escritura", icon: "menu_book", summary: "A Bíblia é a única autoridade infalível para a fé e a vida cristã, sendo a regra final de toda doutrina." },
-            { name: "Sola Fide", desc: "Somente a Fé", icon: "verified", summary: "A justificação do pecador diante de Deus dá-se unicamente pela fé em Cristo, sem o mérito de nossas obras." },
+            { name: "Sola Fide", desc: "Somente a Fé", icon: "verified", summary: "A justificação do pecador diante de Deus dá-se unicamente pela fé in Cristo, sem o mérito de nossas obras." },
             { name: "Sola Gratia", desc: "Somente a Graça", icon: "redeem", summary: "A salvação é um dom gratuito de Deus, concedido soberanamente sem qualquer contribuição humana." },
-            { name: "Solus Christus", desc: "Somente Cristo", icon: "workspace_premium", summary: "Cristo é o único mediador entre Deus e os homens; não há salvação em nenhum outro nome." },
+            { name: "Solus Christus", desc: "Somente Cristo", icon: "workspace_premium", summary: "Cristo é o único mediador entre Deus e os homens; não há salvação in nenhum outro nome." },
             { name: "Soli Deo Gloria", desc: "Somente a Deus a Glória", icon: "auto_awesome", summary: "Tudo o que existe e tudo o que fazemos deve ter como fim último a exaltação da glória de Deus." }
         ]
     },
@@ -98,25 +98,25 @@ export const churchData = {
             title: "Confissão de Fé de Westminster",
             description: "A principal norma doutrinária da nossa igreja, apresentando uma exposição sistemática da fé cristã reformada.",
             icon: "menu_book",
-            link: "/src/assets/docs/confissao_de_westminster.pdf"
+            link: `${import.meta.env.BASE_URL}src/assets/docs/confissao_de_westminster.pdf`.replace(/\/+/g, '/')
         },
         {
             title: "Breve Catecismo",
-            description: "Um resumo conciso da doutrina bíblica em forma de perguntas e respostas, ideal para o ensino de crianças e novos membros.",
+            description: "Um resumo conciso da doutrina bíblica in forma de perguntas e respostas, ideal para o ensino de crianças e novos membros.",
             icon: "school",
-            link: "/src/assets/docs/Breve_Catecismo_de_Westminster.pdf"
+            link: `${import.meta.env.BASE_URL}src/assets/docs/Breve_Catecismo_de_Westminster.pdf`.replace(/\/+/g, '/')
         },
         {
             title: "Catecismo Maior",
             description: "Uma exposição mais detalhada e profunda das doutrinas cristãs, focada no crescimento espiritual e teológico maduro.",
             icon: "history_edu",
-            link: "/src/assets/docs/Catecismo_Maior_de_Westminster.pdf"
+            link: `${import.meta.env.BASE_URL}src/assets/docs/Catecismo_Maior_de_Westminster.pdf`.replace(/\/+/g, '/')
         },
         {
             title: "Manual Presbiteriano",
             description: "Contém a Constituição da IPB, o Código de Disciplina e os Princípios de Liturgia que regem nossa organização.",
             icon: "gavel",
-            link: "/src/assets/docs/manual_presbiteriano_2024.pdf"
+            link: `${import.meta.env.BASE_URL}src/assets/docs/manual_presbiteriano_2024.pdf`.replace(/\/+/g, '/')
         }
     ],
 
