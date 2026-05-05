@@ -4,8 +4,7 @@ export function renderHeader() {
     const header = document.getElementById('main-header');
     if (!header) return;
 
-    const baseUrl = import.meta.env.BASE_URL;
-    const currentPath = window.location.pathname;
+    const currentHash = window.location.hash || '#home';
 
     header.className = "bg-surface/95 backdrop-blur-md sticky top-0 z-50 shadow-sm shadow-primary/5 h-20";
     header.innerHTML = `
@@ -13,10 +12,9 @@ export function renderHeader() {
             <div class="font-headline-md text-headline-md font-bold text-primary">${churchData.name}</div>
             <div class="hidden md:flex items-center gap-stack-md">
                 ${churchData.links.map(link => {
-                    const fullHref = (baseUrl + link.href).replace(/\/+/g, '/');
-                    const isActive = currentPath === fullHref || (currentPath === baseUrl && link.href === '/');
+                    const isActive = currentHash === link.href;
                     return `
-                        <a class="font-label-md text-label-md ${isActive ? 'text-secondary font-bold border-b-2 border-secondary pb-1' : 'text-on-surface-variant hover:text-primary'} transition-colors" href="${fullHref}">
+                        <a class="font-label-md text-label-md ${isActive ? 'text-secondary font-bold border-b-2 border-secondary pb-1' : 'text-on-surface-variant hover:text-primary'} transition-colors" href="${link.href}">
                             ${link.label}
                         </a>
                     `;
@@ -29,8 +27,6 @@ export function renderHeader() {
 export function renderFooter() {
     const footer = document.getElementById('main-footer');
     if (!footer) return;
-
-    const baseUrl = import.meta.env.BASE_URL;
 
     footer.className = "bg-primary text-on-primary py-stack-lg border-t border-white/5";
     footer.innerHTML = `
@@ -45,10 +41,7 @@ export function renderFooter() {
                 <div>
                     <h4 class="font-label-md text-label-md text-secondary-fixed mb-4">Links Úteis</h4>
                     <ul class="space-y-2 opacity-80 text-sm">
-                        ${churchData.links.map(link => {
-                            const fullHref = (baseUrl + link.href).replace(/\/+/g, '/');
-                            return `<li><a href="${fullHref}" class="hover:text-secondary-fixed transition-colors">${link.label}</a></li>`;
-                        }).join('')}
+                        ${churchData.links.map(link => `<li><a href="${link.href}" class="hover:text-secondary-fixed transition-colors">${link.label}</a></li>`).join('')}
                     </ul>
                 </div>
                 <div>

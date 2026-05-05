@@ -12,96 +12,219 @@
     <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         body { background-color: #f8f9fa; }
+        .page-content.hidden { display: none; }
     </style>
 </head>
 <body class="font-body-md text-on-surface">
     <header id="main-header"></header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="relative w-full h-[70vh] flex items-center overflow-hidden">
-            <div class="absolute inset-0 z-0">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent z-10"></div>
-                <img alt="Interior da Igreja" class="w-full h-full object-cover" src="./src/assets/images/banner.png"/>
-            </div>
-            <div class="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter text-on-primary">
-                <h1 id="hero-title" class="font-headline-xl text-headline-xl mb-stack-sm max-w-2xl"></h1>
-                <p id="hero-desc" class="font-body-lg text-body-lg mb-stack-md max-w-xl opacity-90"></p>
-                <div class="flex gap-unit">
-                    <a href="pages/quem-somos.html" class="bg-secondary text-on-secondary px-stack-md py-4 rounded-xl font-label-md text-label-md hover:bg-on-secondary-container transition-all">
-                        Conheça nossa História
-                    </a>
+        <!-- Home Page -->
+        <div id="home-page" class="page-content">
+            <!-- Hero Section -->
+            <section class="relative w-full h-[70vh] flex items-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent z-10"></div>
+                    <img alt="Interior da Igreja" class="w-full h-full object-cover" src="./src/assets/images/banner.png"/>
                 </div>
-            </div>
-        </section>
-
-        <!-- Highlights Bar -->
-        <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter -mt-16 relative z-30">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-                <!-- Cult Hours Card -->
-                <div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/20">
-                    <div class="flex items-center gap-unit mb-stack-sm text-primary">
-                        <span class="material-symbols-outlined">schedule</span>
-                        <h3 class="font-headline-md text-headline-md">Nossos Cultos</h3>
+                <div class="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter text-on-primary">
+                    <h1 id="hero-title" class="font-headline-xl text-headline-xl mb-stack-sm max-w-2xl"></h1>
+                    <p id="hero-desc" class="font-body-lg text-body-lg mb-stack-md max-w-xl opacity-90"></p>
+                    <div class="flex gap-unit">
+                        <a href="#quem-somos" class="bg-secondary text-on-secondary px-stack-md py-4 rounded-xl font-label-md text-label-md hover:bg-on-secondary-container transition-all">
+                            Conheça nossa História
+                        </a>
                     </div>
-                    <div id="cult-hours-list" class="space-y-unit"></div>
                 </div>
-                <!-- Verse of the Day Card -->
-                <div class="bg-primary-container text-on-primary-container p-stack-md rounded-xl shadow-sm md:col-span-2 flex flex-col justify-center">
-                    <div class="flex items-center gap-unit mb-unit">
-                        <span class="material-symbols-outlined">menu_book</span>
-                        <span class="font-label-md text-label-md uppercase tracking-widest opacity-80">Versículo do Dia</span>
+            </section>
+
+            <!-- Highlights Bar -->
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter -mt-16 relative z-30">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                    <!-- Cult Hours Card -->
+                    <div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/20">
+                        <div class="flex items-center gap-unit mb-stack-sm text-primary">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <h3 class="font-headline-md text-headline-md">Nossos Cultos</h3>
+                        </div>
+                        <div id="cult-hours-list" class="space-y-unit"></div>
                     </div>
-                    <blockquote id="daily-verse" class="font-headline-lg text-headline-lg italic mb-stack-sm text-white"></blockquote>
-                    <cite id="daily-verse-ref" class="font-label-md text-label-md not-italic text-primary-fixed"></cite>
+                    <!-- Verse of the Day Card -->
+                    <div class="bg-primary-container text-on-primary-container p-stack-md rounded-xl shadow-sm md:col-span-2 flex flex-col justify-center">
+                        <div class="flex items-center gap-unit mb-unit">
+                            <span class="material-symbols-outlined">menu_book</span>
+                            <span class="font-label-md text-label-md uppercase tracking-widest opacity-80">Versículo do Dia</span>
+                        </div>
+                        <blockquote id="daily-verse" class="font-headline-lg text-headline-lg italic mb-stack-sm text-white"></blockquote>
+                        <cite id="daily-verse-ref" class="font-label-md text-label-md not-italic text-primary-fixed"></cite>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- News Section -->
-        <section class="py-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div class="flex justify-between items-end mb-stack-md">
-                <div>
-                    <h2 class="font-headline-lg text-headline-lg text-primary">Últimas Notícias</h2>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Fique por dentro das atividades da nossa igreja</p>
-                </div>
-                <a class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1" href="pages/agenda.html">
-                    Ver todos os avisos <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-                </a>
-            </div>
-            <div id="news-grid" class="grid grid-cols-1 md:grid-cols-4 gap-gutter"></div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="bg-surface-container py-stack-lg border-t border-outline-variant/10">
-            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
-                <h2 class="font-headline-lg text-headline-lg text-primary mb-stack-sm">Deseja nos visitar?</h2>
-                <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md max-w-2xl mx-auto">
-                    Nossa igreja está localizada no coração do Paranoá. Ficaremos felizes em recebê-lo.
-                </p>
-                <div class="flex flex-col md:flex-row justify-center gap-unit">
-                    <a id="maps-link" target="_blank" class="bg-primary text-on-primary px-stack-md py-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-unit hover:bg-primary-container transition-all">
-                        <span class="material-symbols-outlined">location_on</span> Como Chegar
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Events Section -->
-        <section class="py-stack-lg bg-surface-container-low">
-            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+            <!-- News Section -->
+            <section class="py-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter">
                 <div class="flex justify-between items-end mb-stack-md">
                     <div>
-                        <span class="text-secondary font-label-md text-label-md uppercase tracking-widest mb-1 block">Agenda</span>
-                        <h2 class="font-headline-lg text-headline-lg text-primary">Próximos Eventos</h2>
+                        <h2 class="font-headline-lg text-headline-lg text-primary">Últimas Notícias</h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Fique por dentro das atividades da nossa igreja</p>
                     </div>
-                    <a href="pages/agenda.html" class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1">
-                        Ver Agenda Completa <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <a class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1" href="#agenda">
+                        Ver todos os avisos <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </a>
                 </div>
-                <div id="events-list" class="grid grid-cols-1 md:grid-cols-3 gap-gutter"></div>
+                <div id="news-grid" class="grid grid-cols-1 md:grid-cols-4 gap-gutter"></div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="bg-surface-container py-stack-lg border-t border-outline-variant/10">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
+                    <h2 class="font-headline-lg text-headline-lg text-primary mb-stack-sm">Deseja nos visitar?</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md max-w-2xl mx-auto">
+                        Nossa igreja está localizada no coração do Paranoá. Ficaremos felizes em recebê-lo.
+                    </p>
+                    <div class="flex flex-col md:flex-row justify-center gap-unit">
+                        <a id="maps-link" target="_blank" class="bg-primary text-on-primary px-stack-md py-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-unit hover:bg-primary-container transition-all">
+                            <span class="material-symbols-outlined">location_on</span> Como Chegar
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Events Section Summary -->
+            <section class="py-stack-lg bg-surface-container-low">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                    <div class="flex justify-between items-end mb-stack-md">
+                        <div>
+                            <span class="text-secondary font-label-md text-label-md uppercase tracking-widest mb-1 block">Agenda</span>
+                            <h2 class="font-headline-lg text-headline-lg text-primary">Próximos Eventos</h2>
+                        </div>
+                        <a href="#agenda" class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1">
+                            Ver Agenda Completa <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                    </div>
+                    <div id="events-list" class="grid grid-cols-1 md:grid-cols-3 gap-gutter"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Quem Somos Page -->
+        <div id="quem-somos-page" class="page-content hidden pt-32 pb-stack-lg">
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mb-stack-lg">
+                <div class="text-center md:text-left">
+                    <span class="text-secondary font-label-md text-label-md uppercase tracking-widest mb-stack-sm block">História e Valores</span>
+                    <h1 class="font-headline-xl text-headline-xl text-primary mb-stack-md">Uma Igreja de Identidade Reformada</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed">
+                        A <span class="church-name"></span> é uma comunidade cristã comprometida com a pregação fiel das Escrituras.
+                    </p>
+                </div>
+            </section>
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-stack-lg border-t border-outline-variant/20">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-start">
+                    <div class="md:col-span-7 space-y-stack-md">
+                        <h2 class="font-headline-lg text-headline-lg text-primary">Nossa História</h2>
+                        <div class="font-body-md text-body-md text-on-surface space-y-4 leading-relaxed">
+                            <p>Nossa igreja nasceu do desejo de famílias dedicadas em ver o Reino de Deus expandido em nossa região.</p>
+                            <p>Através de ministérios de ensino, misericórdia e adoração, buscamos glorificar a Deus em todas as esferas da vida.</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="bg-surface-container-low p-stack-md rounded-xl shadow-sm border border-outline-variant/10">
+                            <h3 class="font-headline-md text-headline-md text-primary mb-4">Nossa Missão</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md italic">"Proclamar o Evangelho de Cristo, edificar os santos e servir à comunidade."</p>
+                            <hr class="border-primary/20 mb-stack-md"/>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-4"><span class="material-symbols-outlined text-secondary">verified</span><span>Fidelidade Bíblica</span></div>
+                                <div class="flex items-center gap-4"><span class="material-symbols-outlined text-secondary">groups</span><span>Comunhão Fraterna</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="reformed-identity-section" class="bg-primary text-on-primary py-24"></section>
+            <section id="faith-standards-section" class="py-24 bg-surface-container-low"></section>
+            <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-stack-lg">
+                <h2 class="font-headline-lg text-headline-lg text-primary text-center mb-stack-lg">Nossa Liderança</h2>
+                <div id="leaders-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter"></div>
+            </section>
+        </div>
+
+        <!-- Ministérios Page -->
+        <div id="ministerios-page" class="page-content hidden">
+            <section class="py-32 bg-surface-container-low">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
+                    <h1 class="font-headline-xl text-headline-xl text-primary mb-4">Nossos Ministérios</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                        Conheça as Sociedades Internas e grupos de serviço que compõem a vida comunitária da <span class="church-name"></span>.
+                    </p>
+                </div>
+            </section>
+            <section class="py-stack-lg">
+                <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                    <div id="ministries-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-md"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Agenda Page -->
+        <div id="agenda-page" class="page-content hidden py-32">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                <div class="mb-stack-lg">
+                    <h1 class="font-headline-xl text-headline-xl text-primary mb-2">Agenda Completa</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Confira todos os nossos cultos, reuniões e eventos especiais.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                    <div class="lg:col-span-4 space-y-stack-lg">
+                        <div class="bg-white rounded-xl shadow-sm border border-outline-variant/10 overflow-hidden">
+                            <div class="bg-primary p-3 flex justify-between items-center text-on-primary">
+                                <button id="prev-month" class="p-1 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+                                <h2 id="calendar-month-year" class="font-label-md text-[14px] uppercase tracking-wider font-bold"></h2>
+                                <button id="next-month" class="p-1 hover:bg-white/10 rounded-full transition-colors"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+                            </div>
+                            <div id="calendar-grid" class="grid grid-cols-7 text-center border-b border-outline-variant/10 bg-surface-container-low font-label-md text-[10px] py-2">
+                                <div>D</div><div>S</div><div>T</div><div>Q</div><div>Q</div><div>S</div><div>S</div>
+                            </div>
+                            <div id="calendar-days" class="grid grid-cols-7 text-center text-[12px]"></div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-8">
+                        <h2 class="font-headline-md text-headline-md text-primary mb-6 flex items-center gap-2"><span class="material-symbols-outlined">calendar_month</span> Atividades e Eventos</h2>
+                        <div id="agenda-events" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
+
+        <!-- Contato Page -->
+        <div id="contato-page" class="page-content hidden py-32">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                <header class="mb-stack-lg max-w-2xl">
+                    <h1 class="font-headline-xl text-headline-xl text-primary mb-stack-sm">Localização e Contato</h1>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">Estamos prontos para receber você e sua família.</p>
+                </header>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                    <div class="md:col-span-8 h-[400px] bg-surface-container rounded-xl overflow-hidden relative shadow-sm border border-outline-variant/10">
+                        <iframe id="map-iframe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-md max-w-xs border border-outline-variant/20">
+                            <h3 class="font-bold text-primary flex items-center gap-2"><span class="material-symbols-outlined text-[18px]">location_on</span> Endereço</h3>
+                            <p id="contact-address" class="text-sm text-on-surface-variant"></p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 flex flex-col gap-gutter">
+                        <div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/10">
+                            <h2 class="font-headline-md text-headline-md text-primary mb-4">Secretaria</h2>
+                            <ul id="office-hours-list" class="space-y-4"></ul>
+                        </div>
+                        <div class="bg-primary text-on-primary p-stack-md rounded-xl shadow-sm">
+                            <h2 class="font-headline-md text-headline-md mb-4">Contatos</h2>
+                            <div class="space-y-4">
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined">call</span> <span id="contact-phone" class="font-bold"></span></div>
+                                <div class="flex items-center gap-2"><span class="material-symbols-outlined">mail</span> <span id="contact-email" class="font-bold"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer id="main-footer"></footer>

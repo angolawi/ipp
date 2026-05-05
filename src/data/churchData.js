@@ -1,3 +1,5 @@
+import safImage from '../assets/images/saf.jpeg';
+
 export const churchData = {
     name: "IPB Paranoá",
     fullName: "Igreja Presbiteriana do Paranoá",
@@ -36,11 +38,11 @@ export const churchData = {
     },
 
     links: [
-        { label: "Início", href: "/" },
-        { label: "Quem Somos", href: "/pages/quem-somos.html" },
-        { label: "Ministérios", href: "/pages/ministerios.html" },
-        { label: "Agenda", href: "/pages/agenda.html" },
-        { label: "Contato", href: "/pages/contato.html" }
+        { label: "Início", href: "#home" },
+        { label: "Quem Somos", href: "#quem-somos" },
+        { label: "Ministérios", href: "#ministerios" },
+        { label: "Agenda", href: "#agenda" },
+        { label: "Contato", href: "#contato" }
     ],
 
     news: [
@@ -65,7 +67,7 @@ export const churchData = {
     ],
 
     ministries: [
-        { id: "SAF", name: "SAF", fullName: "Sociedade Auxiliadora Feminina", description: "Dedicada ao serviço, oração e comunhão entre as mulheres da igreja.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
+        { id: "SAF", name: "SAF", fullName: "Sociedade Auxiliadora Feminina", description: "Dedicada ao serviço, oração e comunhão entre as mulheres da igreja.", image: safImage },
         { id: "UPH", name: "UPH", fullName: "União Presbiteriana de Homens", description: "Focada no fortalecimento espiritual do homem presbiteriano.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
         { id: "UMP", name: "UMP", fullName: "União de Mocidade Presbiteriana", description: "Um espaço de crescimento e amizade para jovens.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
         { id: "UPA", name: "UPA", fullName: "União de Adolescentes Presbiterianos", description: "Acompanhando adolescentes em sua fase de descobertas.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
