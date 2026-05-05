@@ -10,6 +10,8 @@ export function renderHeader() {
     header.innerHTML = `
         <nav class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
             <div class="font-headline-md text-headline-md font-bold text-primary">${churchData.name}</div>
+            
+            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center gap-stack-md">
                 ${churchData.links.map(link => {
                     const isActive = currentHash === link.href;
@@ -20,8 +22,49 @@ export function renderHeader() {
                     `;
                 }).join('')}
             </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-primary p-2">
+                <span class="material-symbols-outlined text-[32px]">menu</span>
+            </button>
         </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-surface z-50 flex flex-col items-center justify-center gap-stack-lg transition-all duration-300 translate-x-full md:hidden">
+            <button id="mobile-menu-close" class="absolute top-6 right-margin-mobile text-primary">
+                <span class="material-symbols-outlined text-[40px]">close</span>
+            </button>
+            ${churchData.links.map(link => {
+                const isActive = currentHash === link.href;
+                return `
+                    <a class="font-headline-md text-headline-md ${isActive ? 'text-secondary font-bold underline underline-offset-8' : 'text-on-surface'} mobile-nav-link" href="${link.href}">
+                        ${link.label}
+                    </a>
+                `;
+            }).join('')}
+        </div>
     `;
+
+    // Event Listeners for Mobile Menu
+    const toggle = document.getElementById('mobile-menu-toggle');
+    const close = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (toggle && close && menu) {
+        toggle.onclick = () => {
+            menu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden'; // Prevent scroll
+        };
+
+        const closeMenu = () => {
+            menu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        };
+
+        close.onclick = closeMenu;
+        navLinks.forEach(link => link.onclick = closeMenu);
+    }
 }
 
 export function renderFooter() {
