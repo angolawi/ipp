@@ -9,7 +9,7 @@ import { initContato } from './pages/contato.js';
 import { initAgenda } from './pages/agenda.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Shared Layout (Footer only needs to render once)
+    // Shared Layout
     renderFooter();
 
     // Global Church Name Injection
@@ -21,28 +21,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.addEventListener('hashchange', handleRouting);
     
     // Initial Route
-    if (!window.location.hash) {
-        window.location.hash = '#home';
-    } else {
-        handleRouting();
-    }
+    handleRouting();
 });
 
 async function handleRouting() {
-    const hash = window.location.hash || '#home';
-    const data = churchData;
+    // Normalize hash: default to #home if empty or just '#'
+    let hash = window.location.hash;
+    if (!hash || hash === '#') {
+        hash = '#home';
+    }
 
-    // Update Header (to refresh active link state)
+    const data = churchData;
+    const pageBaseId = hash.replace('#', '');
+
+    // Update Header
     renderHeader();
 
     // Hide all pages
-    document.querySelectorAll('.page-content').forEach(el => {
-        el.classList.add('hidden');
-    });
+    const pages = document.querySelectorAll('.page-content');
+    pages.forEach(el => el.classList.add('hidden'));
 
-    // Show selected page
-    const pageBaseId = hash.replace('#', '');
-    const pageEl = document.getElementById(`${pageBaseId}-page`);
+    // Show selected page or default to home if not found
+    let pageEl = document.getElementById(`${pageBaseId}-page`);
+    
+    if (!pageEl) {
+        pageEl = document.getElementById('home-page');
+        // If we defaulted to home, update the hash without jumping
+        if (window.location.hash !== '#home') {
+            history.replaceState(null, null, '#home');
+        }
+    }
     
     if (pageEl) {
         pageEl.classList.remove('hidden');
@@ -50,8 +58,10 @@ async function handleRouting() {
     }
 
     // Page Specific Initialization
-    // Note: We check the base ID to decide which init to run
-    switch (pageBaseId) {
+    // We determine which init to run based on the ACTUAL visible page
+    const activePageId = pageEl ? pageEl.id.replace('-page', '') : 'home';
+
+    switch (activePageId) {
         case 'home':
             await initHome(data);
             break;
