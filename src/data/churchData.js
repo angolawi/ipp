@@ -109,7 +109,7 @@ export const churchData = {
             link: `${import.meta.env.BASE_URL}docs/Breve_Catecismo_de_Westminster.pdf`.replace(/\/+/g, '/')
         },
         {
-            title: "Catecismo Maior",
+            title: "Catecismo Maior de Westminster",
             description: "Uma exposição mais detalhada e profunda das doutrinas cristãs, focada no crescimento espiritual e teológico maduro.",
             icon: "history_edu",
             link: `${import.meta.env.BASE_URL}docs/Catecismo_Maior_de_Westminster.pdf`.replace(/\/+/g, '/')
