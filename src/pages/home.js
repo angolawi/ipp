@@ -1,11 +1,27 @@
-export function initHome(data) {
+export async function initHome(data) {
     // Update Hero section
     document.getElementById('hero-title').textContent = data.fullName;
     document.getElementById('hero-desc').textContent = data.tagline;
 
-    // Render Daily Verse
-    document.getElementById('daily-verse').textContent = `"${data.verseOfTheDay.text}"`;
-    document.getElementById('daily-verse-ref').textContent = `— ${data.verseOfTheDay.reference}`;
+    // Render Daily Verse (with External API)
+    const verseTextEl = document.getElementById('daily-verse');
+    const verseRefEl = document.getElementById('daily-verse-ref');
+
+    try {
+        // Usando a API "A Bíblia Digital" (Exemplo de versículo aleatório para o dia)
+        // Nota: Para uma API real de VOTD, algumas exigem chave. Esta é uma forma estável e gratuita:
+        const response = await fetch('https://bible-api.com/?random=verse&translation=almeida');
+        const verseData = await response.json();
+        
+        verseTextEl.textContent = `"${verseData.text.trim()}"`;
+        verseRefEl.textContent = `— ${verseData.reference}`;
+    } catch (error) {
+        console.error("Erro ao buscar versículo da API:", error);
+        // Fallback para o dado local se a API falhar
+        verseTextEl.textContent = `"${data.verseOfTheDay.text}"`;
+        verseRefEl.textContent = `— ${data.verseOfTheDay.reference}`;
+    }
+
     document.getElementById('maps-link').href = data.contacts.mapsLink;
 
     // Render Cult Hours

@@ -73,7 +73,7 @@ export const churchData = {
     ],
 
     leaders: [
-        { name: "Pastor Carlos Eduardo", role: "Pastor Titular", bio: "Bacharel em Teologia pelo Seminário Presbiteriano de Brasília.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
+        { name: "Rev. Carlos Eduardo Melo Lima", role: "Pastor Titular", bio: "Bacharel em Teologia pelo Seminário Presbiteriano de Brasília.", image: "https://lh3.googleusercontent.com/aida/ADBb0ugMIzivrf4NRt8GstLX4BTS1BvhYqvHk2tOFlyb0oPnbHCcLAGwPZZHnAiPX81N53qAN4ExlTtTc_ZnaNIOwuxHmvqhCRlsf3bR7alFxY-m3cYO_DZZEzU-EEQH0eO2knDOEEiWSo3DfV3jRtzNQBf3mMcapfNbR7Ls5aG4xuJhq8PZKLE2IHTtamvtJ6Wazw5Ce818H2tUAi9ERa5IcKSPSsy5lJ4ZgWAHY6_WuslSET-thz-t1xZ7bXB4UnytWEcQqxivcIaf2bY" },
         { name: "...", role: "Conselho de Presbíteros", bio: "Responsável pelo ministério de Ensino e Escola Dominical." },
         { name: "Presb. ", role: "Conselho de Presbíteros", bio: "Coordena as juntas de Diaconia e Obras Sociais." },
         { name: "Presb.", role: "Conselho de Presbíteros", bio: "Tesouraria e Administração Geral da Igreja." }
@@ -122,19 +122,19 @@ export const churchData = {
 
     events: [
         {
-            date: "12 MAI",
-            title: "Reunião de Homens (UPH)",
+            date: "13 JUN",
+            title: "Encontro de Casais",
             time: "19:30",
-            location: "Salão Social"
+            location: "Em definição"
         },
         {
-            date: "15 MAI",
-            title: "Encontro de Casais",
+            date: "18 JUN",
+            title: "Batismo",
             time: "20:00",
             location: "Templo"
         },
         {
-            date: "20 MAI",
+            date: "25 JUN",
             title: "Vigília de Oração",
             time: "22:00",
             location: "Templo"

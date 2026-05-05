@@ -8,7 +8,7 @@ import { initMinisterios } from './pages/ministerios.js';
 import { initContato } from './pages/contato.js';
 import { initAgenda } from './pages/agenda.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // Shared Layout
     renderHeader();
     renderFooter();
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     
     if (path === '/' || path === '/index.html') {
-        initHome(churchData);
+        await initHome(churchData);
     } else if (path.includes('quem-somos.html')) {
         initQuemSomos(churchData);
     } else if (path.includes('ministerios.html')) {

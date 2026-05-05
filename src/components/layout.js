@@ -49,9 +49,9 @@ export function renderFooter() {
                 <div>
                     <h4 class="font-label-md text-label-md text-secondary-fixed mb-4">Redes Sociais</h4>
                     <div class="flex gap-4">
-                        ${churchData.social.instagram !== '#' ? `<a href="${churchData.social.instagram}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed hover:text-primary transition-all">IG</a>` : ''}
-                        ${churchData.social.facebook !== '#' ? `<a href="${churchData.social.facebook}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed hover:text-primary transition-all">FB</a>` : ''}
-                        ${churchData.social.youtube !== '#' ? `<a href="${churchData.social.youtube}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed hover:text-primary transition-all">YT</a>` : ''}
+                        ${churchData.social.instagram !== '#' ? `<a href="${churchData.social.instagram}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed hover:text-primary transition-all text-xl"><i class="fa-brands fa-instagram"></i></a>` : ''}
+                        ${churchData.social.facebook !== '#' ? `<a href="${churchData.social.facebook}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed hover:text-primary transition-all text-xl"><i class="fa-brands fa-facebook-f"></i></a>` : ''}
+                        ${churchData.social.youtube !== '#' ? `<a href="${churchData.social.youtube}" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary-fixed hover:text-primary transition-all text-xl"><i class="fa-brands fa-youtube"></i></a>` : ''}
                     </div>
                 </div>
             </div>
