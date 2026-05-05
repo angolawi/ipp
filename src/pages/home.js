@@ -44,7 +44,7 @@ export async function initHome(data) {
         newsGrid.innerHTML = data.news.map((item, index) => {
             if (index === 0) { // Featured Card
                 return `
-                    <div class="md:col-span-2 md:row-span-2 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 group cursor-pointer hover:shadow-md transition-all">
+                    <div class="news-card md:col-span-2 md:row-span-2 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 group cursor-pointer hover:shadow-md transition-all" data-index="${index}">
                         <div class="h-64 overflow-hidden">
                             <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('${item.image}')"></div>
                         </div>
@@ -57,7 +57,7 @@ export async function initHome(data) {
                 `;
             } else { // Secondary Cards
                 return `
-                    <div class="flex bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-md transition-shadow cursor-pointer">
+                    <div class="news-card flex bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-md transition-shadow cursor-pointer" data-index="${index}">
                         <div class="w-1/3 h-full min-h-[120px] bg-cover bg-center" style="background-image: url('${item.image}')"></div>
                         <div class="w-2/3 p-stack-sm flex flex-col justify-center">
                             <span class="text-secondary font-label-md text-[12px] mb-1">${item.category}</span>
@@ -68,6 +68,39 @@ export async function initHome(data) {
                 `;
             }
         }).join('');
+
+        // Modal Logic
+        const modal = document.getElementById('news-modal');
+        const modalImage = document.getElementById('news-modal-image');
+        const modalCategory = document.getElementById('news-modal-category');
+        const modalTitle = document.getElementById('news-modal-title');
+        const modalDescription = document.getElementById('news-modal-description');
+        const closeBtn = document.getElementById('close-news-modal');
+        const overlay = document.getElementById('news-modal-overlay');
+
+        const openNewsModal = (item) => {
+            modalImage.src = item.image;
+            modalCategory.textContent = item.category;
+            modalTitle.textContent = item.title;
+            modalDescription.textContent = item.description;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeNewsModal = () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        };
+
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.onclick = () => {
+                const idx = card.getAttribute('data-index');
+                openNewsModal(data.news[idx]);
+            };
+        });
+
+        if (closeBtn) closeBtn.onclick = closeNewsModal;
+        if (overlay) overlay.onclick = closeNewsModal;
     }
 
     // Render Events
