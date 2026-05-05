@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="light" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>IP Paranoá - Igreja Presbiteriana do Paranoá</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script type="module" src="/src/styles/tailwind-config.js"></script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        body { background-color: #f8f9fa; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface">
+    <header id="main-header"></header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative w-full h-[70vh] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent z-10"></div>
+                <img alt="Interior da Igreja" class="w-full h-full object-cover" src="/src/assets/images/banner.png"/>
+            </div>
+            <div class="relative z-20 w-full max-w-container-max mx-auto px-margin-mobile md:px-gutter text-on-primary">
+                <h1 id="hero-title" class="font-headline-xl text-headline-xl mb-stack-sm max-w-2xl"></h1>
+                <p id="hero-desc" class="font-body-lg text-body-lg mb-stack-md max-w-xl opacity-90"></p>
+                <div class="flex gap-unit">
+                    <a href="/pages/quem-somos.html" class="bg-secondary text-on-secondary px-stack-md py-4 rounded-xl font-label-md text-label-md hover:bg-on-secondary-container transition-all">
+                        Conheça nossa História
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights Bar -->
+        <section class="max-w-container-max mx-auto px-margin-mobile md:px-gutter -mt-16 relative z-30">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Cult Hours Card -->
+                <div class="bg-surface-container-lowest p-stack-md rounded-xl shadow-sm border border-outline-variant/20">
+                    <div class="flex items-center gap-unit mb-stack-sm text-primary">
+                        <span class="material-symbols-outlined">schedule</span>
+                        <h3 class="font-headline-md text-headline-md">Nossos Cultos</h3>
+                    </div>
+                    <div id="cult-hours-list" class="space-y-unit"></div>
+                </div>
+                <!-- Verse of the Day Card -->
+                <div class="bg-primary-container text-on-primary-container p-stack-md rounded-xl shadow-sm md:col-span-2 flex flex-col justify-center">
+                    <div class="flex items-center gap-unit mb-unit">
+                        <span class="material-symbols-outlined">menu_book</span>
+                        <span class="font-label-md text-label-md uppercase tracking-widest opacity-80">Versículo do Dia</span>
+                    </div>
+                    <blockquote id="daily-verse" class="font-headline-lg text-headline-lg italic mb-stack-sm text-white"></blockquote>
+                    <cite id="daily-verse-ref" class="font-label-md text-label-md not-italic text-primary-fixed"></cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="py-stack-lg max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+            <div class="flex justify-between items-end mb-stack-md">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg text-primary">Últimas Notícias</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Fique por dentro das atividades da nossa igreja</p>
+                </div>
+                <a class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1" href="/pages/agenda.html">
+                    Ver todos os avisos <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </a>
+            </div>
+            <div id="news-grid" class="grid grid-cols-1 md:grid-cols-4 gap-gutter"></div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-surface-container py-stack-lg border-t border-outline-variant/10">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
+                <h2 class="font-headline-lg text-headline-lg text-primary mb-stack-sm">Deseja nos visitar?</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-md max-w-2xl mx-auto">
+                    Nossa igreja está localizada no coração do Paranoá. Ficaremos felizes em recebê-lo.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-unit">
+                    <a id="maps-link" target="_blank" class="bg-primary text-on-primary px-stack-md py-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-unit hover:bg-primary-container transition-all">
+                        <span class="material-symbols-outlined">location_on</span> Como Chegar
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="py-stack-lg bg-surface-container-low">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+                <div class="flex justify-between items-end mb-stack-md">
+                    <div>
+                        <span class="text-secondary font-label-md text-label-md uppercase tracking-widest mb-1 block">Agenda</span>
+                        <h2 class="font-headline-lg text-headline-lg text-primary">Próximos Eventos</h2>
+                    </div>
+                    <a href="/pages/agenda.html" class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1">
+                        Ver Agenda Completa <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+                <div id="events-list" class="grid grid-cols-1 md:grid-cols-3 gap-gutter"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
