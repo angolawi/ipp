@@ -103,13 +103,13 @@ export const churchData = {
             link: `${import.meta.env.BASE_URL}docs/confissao_de_westminster.pdf`.replace(/\/+/g, '/')
         },
         {
-            title: "Breve Catecismo",
+            title: "Breve Catecismo de Westminster",
             description: "Um resumo conciso da doutrina bíblica in forma de perguntas e respostas, ideal para o ensino de crianças e novos membros.",
             icon: "school",
             link: `${import.meta.env.BASE_URL}docs/Breve_Catecismo_de_Westminster.pdf`.replace(/\/+/g, '/')
         },
         {
-            title: "Catecismo Maior",
+            title: "Catecismo Maior de Westminster",
             description: "Uma exposição mais detalhada e profunda das doutrinas cristãs, focada no crescimento espiritual e teológico maduro.",
             icon: "history_edu",
             link: `${import.meta.env.BASE_URL}docs/Catecismo_Maior_de_Westminster.pdf`.replace(/\/+/g, '/')
