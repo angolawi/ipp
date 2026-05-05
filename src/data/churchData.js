@@ -100,25 +100,25 @@ export const churchData = {
             title: "Confissão de Fé de Westminster",
             description: "A principal norma doutrinária da nossa igreja, apresentando uma exposição sistemática da fé cristã reformada.",
             icon: "menu_book",
-            link: `${import.meta.env.BASE_URL}src/assets/docs/confissao_de_westminster.pdf`.replace(/\/+/g, '/')
+            link: `${import.meta.env.BASE_URL}docs/confissao_de_westminster.pdf`.replace(/\/+/g, '/')
         },
         {
             title: "Breve Catecismo",
             description: "Um resumo conciso da doutrina bíblica in forma de perguntas e respostas, ideal para o ensino de crianças e novos membros.",
             icon: "school",
-            link: `${import.meta.env.BASE_URL}src/assets/docs/Breve_Catecismo_de_Westminster.pdf`.replace(/\/+/g, '/')
+            link: `${import.meta.env.BASE_URL}docs/Breve_Catecismo_de_Westminster.pdf`.replace(/\/+/g, '/')
         },
         {
             title: "Catecismo Maior",
             description: "Uma exposição mais detalhada e profunda das doutrinas cristãs, focada no crescimento espiritual e teológico maduro.",
             icon: "history_edu",
-            link: `${import.meta.env.BASE_URL}src/assets/docs/Catecismo_Maior_de_Westminster.pdf`.replace(/\/+/g, '/')
+            link: `${import.meta.env.BASE_URL}docs/Catecismo_Maior_de_Westminster.pdf`.replace(/\/+/g, '/')
         },
         {
             title: "Manual Presbiteriano",
             description: "Contém a Constituição da IPB, o Código de Disciplina e os Princípios de Liturgia que regem nossa organização.",
             icon: "gavel",
-            link: `${import.meta.env.BASE_URL}src/assets/docs/manual_presbiteriano_2024.pdf`.replace(/\/+/g, '/')
+            link: `${import.meta.env.BASE_URL}docs/manual_presbiteriano_2024.pdf`.replace(/\/+/g, '/')
         }
     ],
 
