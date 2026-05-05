@@ -26,15 +26,15 @@ const currentYear = new Date().getFullYear();
 const recurringEvents = getFirstSundays(currentYear);
 
 export const churchData = {
-    name: "IPB Paranoá",
+    name: "IP Paranoá",
     fullName: "Igreja Presbiteriana do Paranoá",
     tagline: "Uma Comunidade de Fé e Identidade Reformada no Paranoá",
     description: "Seja bem-vindo à nossa casa. Aqui buscamos a glória de Deus através da exposição bíblica, comunhão mútua e serviço ao próximo.",
 
     contacts: {
         address: "Q 20 Cj B Lote 06, Paranoá, Brasília - DF",
-        phone: "(61) 3333-0000",
-        email: "secretaria@ipparanoa.org",
+        phone: "(61) XXXX-XXXX",
+        email: "@ipparanoa.org",
         mapsLink: "https://maps.app.goo.gl/GUdWy79VoeiUNtgT8"
     },
 
