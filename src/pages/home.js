@@ -107,7 +107,12 @@ export async function initHome(data) {
     const eventsList = document.getElementById('events-list');
     if (eventsList) {
         eventsList.innerHTML = data.events.map(event => `
-            <div class="bg-surface-container-lowest p-gutter rounded-xl shadow-sm border border-outline-variant/10 flex gap-gutter items-center hover:shadow-md transition-shadow group">
+            <div class="bg-surface-container-lowest p-gutter rounded-xl shadow-sm border border-outline-variant/10 flex gap-gutter items-center hover:shadow-md transition-shadow group relative overflow-hidden ${!event.isRecurring ? 'border-l-4 border-l-secondary bg-secondary/5' : ''}">
+                ${!event.isRecurring ? `
+                    <div class="absolute top-0 right-0 bg-secondary text-on-secondary px-2 py-0.5 text-[10px] font-bold uppercase rounded-bl-lg shadow-sm z-10">
+                        Destaque
+                    </div>
+                ` : ''}
                 <div class="bg-primary/5 text-primary p-4 rounded-lg flex flex-col items-center justify-center min-w-[80px] group-hover:bg-primary group-hover:text-on-primary transition-all">
                     <span class="font-headline-md text-[24px] font-bold leading-none">${event.date.split(' ')[0]}</span>
                     <span class="font-label-md text-[12px] uppercase">${event.date.split(' ')[1]}</span>
