@@ -1,4 +1,4 @@
-# Igreja Presbiteriana do Paranoá (IP Paranoá) - Site Institucional
+# Igreja Presbiteriana do Paranoá (IPB Paranoá) - Site Institucional
 
 Este é o site oficial da **Igreja Presbiteriana do Paranoá**,desenvolvido com uma arquitetura moderna, rápida e orientada a dados. O objetivo principal deste projeto é permitir que a igreja mantenha suas informações (cultos, eventos, notícias, liderança) atualizadas de forma simples, alterando apenas um arquivo central de configuração.
 
@@ -70,4 +70,4 @@ O projeto utiliza um sistema de cores baseado no **Material Design** com foco no
 - **Tipografia**: Noto Serif (Títulos/Doutrina) e Manrope (Corpo/Modernidade)
 
 ---
-*Desenvolvido com carinho para a IP Paranoá.*
+*Desenvolvido com carinho para a IPB Paranoá.*
