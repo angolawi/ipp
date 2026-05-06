@@ -46,9 +46,10 @@ export const churchData = {
 
     cults: [
         { day: "Domingo", name: "Escola Bíblica Dominical", time: "09:00" },
-        { day: "Quarta", name: "Estudo Bíblico", time: "20:00" },
+        { day: "Domingo", name: "Culto Público", time: "19:00" },
         { day: "Terça", name: "Reunião de Oração", time: "20:00" },
-        { day: "Domingo", name: "Culto Público", time: "19:00" }
+        { day: "Quarta", name: "Estudo Bíblico", time: "20:00" }
+
     ],
 
     verseOfTheDay: {
