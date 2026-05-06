@@ -103,34 +103,67 @@ export async function initHome(data) {
         if (overlay) overlay.onclick = closeNewsModal;
     }
 
-    // Render Events
+    // Render Events (Next 2 weeks)
     const eventsList = document.getElementById('events-list');
     if (eventsList) {
-        eventsList.innerHTML = data.events.map(event => `
-            <div class="bg-surface-container-lowest p-gutter rounded-xl shadow-sm border border-outline-variant/10 flex gap-gutter items-center hover:shadow-md transition-shadow group relative overflow-hidden ${!event.isRecurring ? 'border-l-4 border-l-secondary bg-secondary/5' : ''}">
-                ${!event.isRecurring ? `
-                    <div class="absolute top-0 right-0 bg-secondary text-on-secondary px-2 py-0.5 text-[10px] font-bold uppercase rounded-bl-lg shadow-sm z-10">
-                        Destaque
-                    </div>
-                ` : ''}
-                <div class="bg-primary/5 text-primary p-4 rounded-lg flex flex-col items-center justify-center min-w-[80px] group-hover:bg-primary group-hover:text-on-primary transition-all">
-                    <span class="font-headline-md text-[24px] font-bold leading-none">${event.date.split(' ')[0]}</span>
-                    <span class="font-label-md text-[12px] uppercase">${event.date.split(' ')[1]}</span>
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const twoWeeksFromNow = new Date();
+        twoWeeksFromNow.setDate(today.getDate() + 14);
+        twoWeeksFromNow.setHours(23, 59, 59, 999);
+
+        const upcomingEvents = (data.events || []).filter(event => {
+            return event.timestamp >= today.getTime() && event.timestamp <= twoWeeksFromNow.getTime();
+        });
+
+        if (upcomingEvents.length === 0) {
+            eventsList.innerHTML = `
+                <div class="col-span-full py-12 flex flex-col items-center justify-center text-center bg-surface-container-low rounded-xl border border-dashed border-outline-variant/30">
+                    <span class="material-symbols-outlined text-outline text-4xl mb-2">event_busy</span>
+                    <p class="font-body-md text-on-surface-variant">Não há eventos especiais ou cultos extras nas próximas 2 semanas.</p>
+                    <a href="#agenda" class="text-primary font-bold text-sm mt-2 hover:underline">Ver agenda completa</a>
                 </div>
-                <div>
-                    <h4 class="font-headline-md text-[18px] text-primary mb-1">${event.title}</h4>
-                    <div class="flex flex-col gap-1">
-                        <div class="flex items-center gap-1 text-on-surface-variant text-[12px]">
-                            <span class="material-symbols-outlined text-[16px]">schedule</span>
-                            ${event.time}
+            `;
+        } else {
+            eventsList.innerHTML = upcomingEvents.map(event => {
+                const isToday = new Date(event.timestamp).toDateString() === new Date().toDateString();
+                
+                return `
+                    <div class="bg-surface-container-lowest p-gutter rounded-xl shadow-sm border ${isToday ? 'border-primary ring-1 ring-primary/20' : 'border-outline-variant/10'} flex gap-gutter items-center hover:shadow-md transition-shadow group relative overflow-hidden ${!event.isRecurring ? 'border-l-4 border-l-secondary bg-secondary/5' : ''}">
+                        ${isToday ? `
+                            <div class="absolute top-0 left-0 bg-primary text-on-primary px-3 py-1 text-[10px] font-bold uppercase rounded-br-lg shadow-sm z-10 flex items-center gap-1">
+                                <span class="relative flex h-2 w-2">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                                </span>
+                                Hoje
+                            </div>
+                        ` : ''}
+                        ${!event.isRecurring ? `
+                            <div class="absolute top-0 right-0 bg-secondary text-on-secondary px-2 py-0.5 text-[10px] font-bold uppercase rounded-bl-lg shadow-sm z-10">
+                                Destaque
+                            </div>
+                        ` : ''}
+                        <div class="bg-primary/5 text-primary p-4 rounded-lg flex flex-col items-center justify-center min-w-[80px] group-hover:bg-primary group-hover:text-on-primary transition-all">
+                            <span class="font-headline-md text-[24px] font-bold leading-none">${event.date.split(' ')[0]}</span>
+                            <span class="font-label-md text-[12px] uppercase">${event.date.split(' ')[1]}</span>
                         </div>
-                        <div class="flex items-center gap-1 text-on-surface-variant text-[12px]">
-                            <span class="material-symbols-outlined text-[16px]">location_on</span>
-                            ${event.location}
+                        <div>
+                            <h4 class="font-headline-md text-[18px] text-primary mb-1">${event.title}</h4>
+                            <div class="flex flex-col gap-1">
+                                <div class="flex items-center gap-1 text-on-surface-variant text-[12px]">
+                                    <span class="material-symbols-outlined text-[16px]">schedule</span>
+                                    ${event.time}
+                                </div>
+                                <div class="flex items-center gap-1 text-on-surface-variant text-[12px]">
+                                    <span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    ${event.location}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        `).join('');
+                `;
+            }).join('');
+        }
     }
 }

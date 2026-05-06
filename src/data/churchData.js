@@ -195,34 +195,19 @@ export const churchData = {
             time: "19:30",
             location: "Em definição"
         },
-
-    ].sort((a, b) => {
-        // Ordenação por timestamp se disponível
-        if (a.timestamp && b.timestamp) return a.timestamp - b.timestamp;
-
-        const getTimestamp = (evt) => {
-            if (evt.timestamp) return evt.timestamp;
-            const monthsNames = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
-            const [day, monthStr] = evt.date.split(' ');
-            const monthIdx = monthsNames.indexOf(monthStr);
-            if (monthIdx === -1) return Infinity;
-            return new Date(currentYear, monthIdx, parseInt(day)).getTime();
+    ].map(event => {
+        if (event.timestamp) return event;
+        const monthsNames = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+        const [day, monthStr] = event.date.split(' ');
+        const monthIdx = monthsNames.indexOf(monthStr);
+        return {
+            ...event,
+            timestamp: new Date(currentYear, monthIdx, parseInt(day)).getTime()
         };
-
-        return getTimestamp(a) - getTimestamp(b);
-    }).filter(event => {
+    }).sort((a, b) => a.timestamp - b.timestamp)
+    .filter(event => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-
-        const getTimestamp = (evt) => {
-            if (evt.timestamp) return evt.timestamp;
-            const monthsNames = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
-            const [day, monthStr] = evt.date.split(' ');
-            const monthIdx = monthsNames.indexOf(monthStr);
-            if (monthIdx === -1) return 0;
-            return new Date(currentYear, monthIdx, parseInt(day)).getTime();
-        };
-
-        return getTimestamp(event) >= today.getTime();
+        return event.timestamp >= today.getTime();
     })
 };
