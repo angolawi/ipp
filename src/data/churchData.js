@@ -96,7 +96,7 @@ export const churchData = {
     ],
 
     leaders: [
-        { name: "Rev. Carlos Eduardo Melo Lima", role: "Pastor Titular", bio: "Pastor Titular", image: pastorImage },
+        { name: "Rev. Carlos Eduardo Melo Lima", role: "Pastor Titular", bio: "Em Cristo.", image: pastorImage },
         { name: "...", role: "Conselho de Presbíteros", bio: "Responsável pelo ministério de Ensino e Escola Dominical." },
         { name: "Presb. ", role: "Conselho de Presbíteros", bio: "Coordena as juntas de Diaconia e Obras Sociais." },
         { name: "Presb.", role: "Conselho de Presbíteros", bio: "Tesouraria e Administração Geral da Igreja." }
