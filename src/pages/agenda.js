@@ -69,25 +69,33 @@ function renderEventsList(data) {
 
             eventsContainer.innerHTML = sortedDates.map(date => {
                 const dayEvents = grouped[date];
+                const isToday = new Date(dayEvents[0].timestamp).toDateString() === new Date().toDateString();
+                
                 return `
-                    <div class="flex gap-4 md:gap-8 items-start mb-8 last:mb-0 group/day">
+                    <div class="flex gap-4 md:gap-8 items-start mb-8 last:mb-0 group/day ${isToday ? 'scale-[1.01] transition-transform' : ''}">
                         <!-- Date Side -->
                         <div class="flex flex-col items-center min-w-[64px] pt-1">
-                            <span class="text-[28px] font-bold text-primary leading-none">${date.split(' ')[0]}</span>
-                            <span class="text-[12px] uppercase text-secondary font-bold tracking-wider">${date.split(' ')[1]}</span>
+                            <span class="text-[28px] font-bold ${isToday ? 'text-secondary' : 'text-primary'} leading-none">${date.split(' ')[0]}</span>
+                            <span class="text-[12px] uppercase ${isToday ? 'text-secondary animate-pulse' : 'text-secondary'} font-bold tracking-wider">${date.split(' ')[1]}</span>
                             <div class="w-[2px] self-center flex-1 bg-gradient-to-b from-outline-variant/50 to-transparent mt-4 rounded-full min-h-[40px] group-last/day:hidden"></div>
                         </div>
                         
                         <!-- Events List for this Day -->
                         <div class="flex-1 flex flex-col gap-3">
                             ${dayEvents.map(event => `
-                                <div class="bg-white p-4 rounded-xl shadow-sm border border-outline-variant/10 flex justify-between items-center hover:shadow-md transition-all relative overflow-hidden ${!event.isRecurring ? 'border-l-4 border-l-secondary bg-secondary/5 ring-1 ring-secondary/10' : ''}">
+                                <div class="bg-white p-4 rounded-xl shadow-sm border ${isToday ? 'border-secondary/30 ring-1 ring-secondary/10' : 'border-outline-variant/10'} flex justify-between items-center hover:shadow-md transition-all relative overflow-hidden ${!event.isRecurring ? 'border-l-4 border-l-secondary bg-secondary/5 ring-1 ring-secondary/10' : ''}">
+                                    ${isToday ? `
+                                        <div class="absolute top-0 left-0 bg-secondary text-on-secondary px-2 py-0.5 text-[9px] font-bold uppercase rounded-br-lg z-10 flex items-center gap-1">
+                                            <span class="h-1.5 w-1.5 rounded-full bg-white animate-pulse"></span>
+                                            Hoje
+                                        </div>
+                                    ` : ''}
                                     ${!event.isRecurring ? `
                                         <div class="absolute top-0 right-0 bg-secondary text-on-secondary px-2 py-0.5 text-[9px] font-bold uppercase rounded-bl-lg shadow-sm z-10">
                                             Destaque
                                         </div>
                                     ` : ''}
-                                    <div class="flex-1">
+                                    <div class="flex-1 ${isToday ? 'pt-2' : ''}">
                                         <h4 class="font-headline-md text-[16px] text-primary mb-1">${event.title}</h4>
                                         <div class="flex flex-wrap items-center gap-x-6 gap-y-1 text-[12px] text-on-surface-variant">
                                             <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-secondary">schedule</span> ${event.time}</span>
