@@ -15,6 +15,7 @@ const getFirstSundays = (year) => {
             title: "Ceia do Senhor",
             time: "19:00",
             location: "Templo",
+            isRecurring: true,
             // Adicionando um timestamp para facilitar a ordenação se necessário
             timestamp: date.getTime()
         });
@@ -22,8 +23,57 @@ const getFirstSundays = (year) => {
     return dates;
 };
 
+const getWeeklyEvents = (year, cults) => {
+    const months = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
+    const dayMap = {
+        "Domingo": 0,
+        "Segunda": 1,
+        "Terça": 2,
+        "Quarta": 3,
+        "Quinta": 4,
+        "Sexta": 5,
+        "Sábado": 6
+    };
+    const events = [];
+
+    cults.forEach(cult => {
+        let date = new Date(year, 0, 1);
+        const targetDay = dayMap[cult.day];
+        
+        // Find first occurrence
+        while (date.getDay() !== targetDay) {
+            date.setDate(date.getDate() + 1);
+        }
+        
+        // Generate for the whole year
+        while (date.getFullYear() === year) {
+            events.push({
+                date: `${date.getDate().toString().padStart(2, '0')} ${months[date.getMonth()]}`,
+                title: cult.name,
+                time: cult.time,
+                location: "Templo",
+                isRecurring: true,
+                timestamp: date.getTime()
+            });
+            date.setDate(date.getDate() + 7);
+        }
+    });
+    
+    return events;
+};
+
+const churchCults = [
+    { day: "Domingo", name: "Escola Bíblica Dominical", time: "09:00" },
+    { day: "Domingo", name: "Culto Público", time: "19:00" },
+    { day: "Terça", name: "Reunião de Oração", time: "20:00" },
+    { day: "Quarta", name: "Estudo Bíblico", time: "20:00" }
+];
+
 const currentYear = new Date().getFullYear();
-const recurringEvents = getFirstSundays(currentYear);
+const recurringEvents = [
+    ...getFirstSundays(currentYear),
+    ...getWeeklyEvents(currentYear, churchCults)
+];
 
 export const churchData = {
     name: "IPB Paranoá",
@@ -44,13 +94,7 @@ export const churchData = {
         { days: "Domingo", hours: "Fechado" }
     ],
 
-    cults: [
-        { day: "Domingo", name: "Escola Bíblica Dominical", time: "09:00" },
-        { day: "Domingo", name: "Culto Público", time: "19:00" },
-        { day: "Terça", name: "Reunião de Oração", time: "20:00" },
-        { day: "Quarta", name: "Estudo Bíblico", time: "20:00" }
-
-    ],
+    cults: churchCults,
 
     verseOfTheDay: {
         text: "Portanto, quer comais, quer bebais ou façais outra qualquer coisa, fazei tudo para a glória de Deus.",
