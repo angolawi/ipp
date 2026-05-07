@@ -7,6 +7,7 @@ import { initQuemSomos } from './pages/quem-somos.js';
 import { initMinisterios } from './pages/ministerios.js';
 import { initContato } from './pages/contato.js';
 import { initAgenda } from './pages/agenda.js';
+import { initKids } from './pages/kids.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Shared Layout
@@ -76,6 +77,9 @@ async function handleRouting() {
             break;
         case 'agenda':
             initAgenda(data);
+            break;
+        case 'kids':
+            initKids(data);
             break;
     }
 }

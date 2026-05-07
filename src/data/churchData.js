@@ -1,6 +1,7 @@
 import safImage from '../assets/images/saf.jpeg';
 import bannerImage from '../assets/images/banner.png';
 import pastorImage from '../assets/images/pastor.jpg';
+import kidsHeroImage from '../assets/images/kids-hero.png';
 
 const getFirstSundays = (year) => {
     const months = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"];
@@ -136,8 +137,8 @@ export const churchData = {
         { id: "SAF", name: "SAF", fullName: "Sociedade Auxiliadora Feminina", description: "Dedicada ao serviço, oração e comunhão entre as mulheres da igreja.", image: safImage },
         { id: "UPH", name: "UPH", fullName: "União Presbiteriana de Homens", description: "Focada no fortalecimento espiritual do homem presbiteriano.", image: bannerImage },
         { id: "UMP", name: "UMP", fullName: "União de Mocidade Presbiteriana", description: "Um espaço de crescimento e amizade para jovens.", image: bannerImage },
-        { id: "UPA", name: "UPA", fullName: "União de Adolescentes Presbiterianos", description: "Acompanhando adolescentes em sua fase de descobertas.", image: bannerImage },
-        { id: "UCP", name: "UCP", fullName: "União de Crianças Presbiterianas", description: "Evangelizando e discipulando nossas crianças desde cedo.", image: bannerImage }
+        { id: "UPA", name: "UPA", fullName: "UPA", link: "#kids", fullName: "União de Adolescentes Presbiterianos", description: "Acompanhando adolescentes em sua fase de descobertas.", image: bannerImage },
+        { id: "UCP", name: "UCP", fullName: "UCP", link: "#kids", fullName: "União de Crianças Presbiterianas", description: "Evangelizando e discipulando nossas crianças desde cedo.", image: bannerImage }
     ],
 
     leaders: [
@@ -210,5 +211,48 @@ export const churchData = {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         return event.timestamp >= today.getTime();
-    })
+    }),
+
+    kidsArea: {
+        title: "Geração Futuro",
+        description: "Um espaço dedicado ao crescimento espiritual, amizade e aprendizado para nossas crianças e adolescentes.",
+        heroImage: kidsHeroImage,
+        sections: [
+            {
+                id: "ucp",
+                name: "UCP",
+                fullName: "União de Crianças Presbiterianas",
+                ageRange: "4 a 11 anos",
+                motto: "Alegres na Esperança, Fortes na Fé, Dedicados no Amor",
+                description: "Na UCP, as crianças aprendem as verdades bíblicas de forma lúdica e cativante. Nosso objetivo é plantar a semente do Evangelho em cada coração desde cedo.",
+                activities: [
+                    "Escola Bíblica Dominical",
+                    "Culto Infantil",
+                    "Acampamentos e Passeios",
+                    "Gincanas Bíblicas"
+                ],
+                color: "amber"
+            },
+            {
+                id: "upa",
+                name: "UPA",
+                fullName: "União de Adolescentes Presbiterianos",
+                ageRange: "12 a 18 anos",
+                motto: "Ao mestre sejamos fiéis",
+                description: "A UPA é o lugar onde os adolescentes encontram identidade em Cristo, constroem amizades sólidas e são desafiados a viver sua fé de forma relevante no mundo atual.",
+                activities: [
+                    "Estudos Temáticos",
+                    "Noites de Jogos e Comunhão",
+                    "Retiros e Congressos",
+                    "Ações de Serviço Social"
+                ],
+                color: "indigo"
+            }
+        ],
+        verses: [
+            { text: "Deixai vir a mim os pequeninos e não os impeçais, porque dos tais é o reino de Deus.", ref: "Marcos 10:14" },
+            { text: "Lembra-te do teu Criador nos dias da tua mocidade...", ref: "Eclesiastes 12:1" },
+            { text: "Ninguém despreze a tua mocidade; mas sê o exemplo dos fiéis...", ref: "1 Timóteo 4:12" }
+        ]
+    }
 };
