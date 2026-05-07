@@ -84,6 +84,7 @@ export const churchData = {
     contacts: {
         address: "Q 20 Cj B Lote 06, Paranoá, Brasília - DF",
         phone: "(61) XXXX-XXXX",
+        whatsapp: "5561999999999",
         email: "contato@ipparanoa.org",
         mapsLink: "https://maps.app.goo.gl/GUdWy79VoeiUNtgT8"
     },
