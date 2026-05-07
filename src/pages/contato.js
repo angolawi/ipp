@@ -1,3 +1,5 @@
+import { html } from '../utils/security.js';
+
 export function initContato(data) {
     document.getElementById('contact-address').textContent = data.contacts.address;
     document.getElementById('contact-phone').textContent = data.contacts.phone;
@@ -12,11 +14,11 @@ export function initContato(data) {
 
     const hoursList = document.getElementById('office-hours-list');
     if (hoursList) {
-        hoursList.innerHTML = data.officeHours.map(h => `
+        hoursList.innerHTML = html`${data.officeHours.map(h => html`
             <li class="flex justify-between items-center">
                 <span class="text-on-surface-variant">${h.days}</span>
                 <span class="font-bold text-primary">${h.hours}</span>
             </li>
-        `).join('');
+        `)}`;
     }
 }

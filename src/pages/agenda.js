@@ -1,3 +1,5 @@
+import { html } from '../utils/security.js';
+
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
@@ -48,7 +50,7 @@ function renderEventsList(data) {
         });
 
         if (filteredEvents.length === 0) {
-            eventsContainer.innerHTML = `
+            eventsContainer.innerHTML = html`
                 <div class="col-span-full py-12 flex flex-col items-center justify-center text-center bg-white rounded-xl border border-dashed border-outline-variant/30">
                     <span class="material-symbols-outlined text-outline text-5xl mb-4">calendar_today</span>
                     <p class="font-body-lg text-on-surface-variant">Não há eventos agendados para ${monthNames[currentMonth]}.</p>
@@ -67,11 +69,11 @@ function renderEventsList(data) {
                 return parseInt(a.split(' ')[0]) - parseInt(b.split(' ')[0]);
             });
 
-            eventsContainer.innerHTML = sortedDates.map(date => {
+            eventsContainer.innerHTML = html`${sortedDates.map(date => {
                 const dayEvents = grouped[date];
                 const isToday = new Date(dayEvents[0].timestamp).toDateString() === new Date().toDateString();
                 
-                return `
+                return html`
                     <div class="flex gap-4 md:gap-8 items-start mb-8 last:mb-0 group/day ${isToday ? 'scale-[1.01] transition-transform' : ''}">
                         <!-- Date Side -->
                         <div class="flex flex-col items-center min-w-[64px] pt-1">
@@ -82,15 +84,15 @@ function renderEventsList(data) {
                         
                         <!-- Events List for this Day -->
                         <div class="flex-1 flex flex-col gap-3">
-                            ${dayEvents.map(event => `
+                            ${dayEvents.map(event => html`
                                 <div class="bg-white p-4 rounded-xl shadow-sm border ${isToday ? 'border-secondary/30 ring-1 ring-secondary/10' : 'border-outline-variant/10'} flex justify-between items-center hover:shadow-md transition-all relative overflow-hidden ${!event.isRecurring ? 'border-l-4 border-l-secondary bg-secondary/5 ring-1 ring-secondary/10' : ''}">
-                                    ${isToday ? `
+                                    ${isToday ? html`
                                         <div class="absolute top-0 left-0 bg-secondary text-on-secondary px-2 py-0.5 text-[9px] font-bold uppercase rounded-br-lg z-10 flex items-center gap-1">
                                             <span class="h-1.5 w-1.5 rounded-full bg-white animate-pulse"></span>
                                             Hoje
                                         </div>
                                     ` : ''}
-                                    ${!event.isRecurring ? `
+                                    ${!event.isRecurring ? html`
                                         <div class="absolute top-0 right-0 bg-secondary text-on-secondary px-2 py-0.5 text-[9px] font-bold uppercase rounded-bl-lg shadow-sm z-10">
                                             Destaque
                                         </div>
@@ -104,11 +106,11 @@ function renderEventsList(data) {
                                     </div>
                                     <span class="material-symbols-outlined text-outline-variant/30 group-hover:text-primary transition-colors">chevron_right</span>
                                 </div>
-                            `).join('')}
+                            `)}
                         </div>
                     </div>
                 `;
-            }).join('');
+            })}`;
         }
     }
 }
@@ -127,7 +129,7 @@ function renderCalendar(data) {
 
     // Empty cells for first day offset
     for (let i = 0; i < firstDay; i++) {
-        calendarDays.innerHTML += `<div class="p-4 border-b border-r border-outline-variant/5 bg-surface-container-lowest/30"></div>`;
+        calendarDays.innerHTML += html`<div class="p-4 border-b border-r border-outline-variant/5 bg-surface-container-lowest/30"></div>`;
     }
 
     // Actual days
@@ -137,10 +139,10 @@ function renderCalendar(data) {
             return parseInt(eDay) === day && monthsMap[eMonthStr] === currentMonth;
         });
 
-        calendarDays.innerHTML += `
+        calendarDays.innerHTML += html`
             <div class="p-2 border-b border-r border-outline-variant/10 relative h-10 flex items-center justify-center ${hasEvent ? 'bg-secondary/10 font-bold text-primary' : 'text-on-surface-variant'}">
                 <span class="z-10">${day}</span>
-                ${hasEvent ? `<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-secondary"></div>` : ''}
+                ${hasEvent ? html`<div class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-secondary"></div>` : ''}
             </div>
         `;
     }
