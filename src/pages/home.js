@@ -1,3 +1,5 @@
+import { html } from '../utils/security.js';
+
 export async function initHome(data) {
     // Update Hero section
     document.getElementById('hero-title').textContent = data.fullName;
@@ -27,7 +29,7 @@ export async function initHome(data) {
     // Render Cult Hours
     const cultList = document.getElementById('cult-hours-list');
     if (cultList) {
-        cultList.innerHTML = data.cults.map((cult, index) => `
+        cultList.innerHTML = html`${data.cults.map((cult, index) => html`
             <div class="flex justify-between items-center py-2 ${index < data.cults.length - 1 ? 'border-b border-outline-variant/10' : ''}">
                 <div>
                     <span class="font-label-md text-[10px] text-secondary uppercase block leading-none mb-1">${cult.day}</span>
@@ -35,15 +37,15 @@ export async function initHome(data) {
                 </div>
                 <span class="font-headline-md text-headline-md text-secondary">${cult.time}</span>
             </div>
-        `).join('');
+        `)}`;
     }
 
     // Render News (Bento Grid)
     const newsGrid = document.getElementById('news-grid');
     if (newsGrid) {
-        newsGrid.innerHTML = data.news.map((item, index) => {
+        newsGrid.innerHTML = html`${data.news.map((item, index) => {
             if (index === 0) { // Featured Card
-                return `
+                return html`
                     <div class="news-card md:col-span-2 md:row-span-2 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 group cursor-pointer hover:shadow-md transition-all" data-index="${index}">
                         <div class="h-64 overflow-hidden">
                             <div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" style="background-image: url('${item.image}')"></div>
@@ -56,7 +58,7 @@ export async function initHome(data) {
                     </div>
                 `;
             } else { // Secondary Cards
-                return `
+                return html`
                     <div class="news-card flex bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 hover:shadow-md transition-shadow cursor-pointer" data-index="${index}">
                         <div class="w-1/3 h-full min-h-[120px] bg-cover bg-center" style="background-image: url('${item.image}')"></div>
                         <div class="w-2/3 p-stack-sm flex flex-col justify-center">
@@ -67,7 +69,7 @@ export async function initHome(data) {
                     </div>
                 `;
             }
-        }).join('');
+        })}`;
 
         // Modal Logic
         const modal = document.getElementById('news-modal');
@@ -117,7 +119,7 @@ export async function initHome(data) {
         });
 
         if (upcomingEvents.length === 0) {
-            eventsList.innerHTML = `
+            eventsList.innerHTML = html`
                 <div class="col-span-full py-12 flex flex-col items-center justify-center text-center bg-surface-container-low rounded-xl border border-dashed border-outline-variant/30">
                     <span class="material-symbols-outlined text-outline text-4xl mb-2">event_busy</span>
                     <p class="font-body-md text-on-surface-variant">Não há eventos especiais ou cultos extras nas próximas 2 semanas.</p>
@@ -125,12 +127,12 @@ export async function initHome(data) {
                 </div>
             `;
         } else {
-            eventsList.innerHTML = upcomingEvents.map(event => {
+            eventsList.innerHTML = html`${upcomingEvents.map(event => {
                 const isToday = new Date(event.timestamp).toDateString() === new Date().toDateString();
                 
-                return `
+                return html`
                     <div class="bg-surface-container-lowest p-gutter rounded-xl shadow-sm border ${isToday ? 'border-primary ring-1 ring-primary/20' : 'border-outline-variant/10'} flex gap-gutter items-center hover:shadow-md transition-shadow group relative overflow-hidden ${!event.isRecurring ? 'border-l-4 border-l-secondary bg-secondary/5' : ''}">
-                        ${isToday ? `
+                        ${isToday ? html`
                             <div class="absolute top-0 left-0 bg-primary text-on-primary px-3 py-1 text-[10px] font-bold uppercase rounded-br-lg shadow-sm z-10 flex items-center gap-1">
                                 <span class="relative flex h-2 w-2">
                                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -139,7 +141,7 @@ export async function initHome(data) {
                                 Hoje
                             </div>
                         ` : ''}
-                        ${!event.isRecurring ? `
+                        ${!event.isRecurring ? html`
                             <div class="absolute top-0 right-0 bg-secondary text-on-secondary px-2 py-0.5 text-[10px] font-bold uppercase rounded-bl-lg shadow-sm z-10">
                                 Destaque
                             </div>
@@ -163,7 +165,7 @@ export async function initHome(data) {
                         </div>
                     </div>
                 `;
-            }).join('');
+            })}`;
         }
     }
 }
